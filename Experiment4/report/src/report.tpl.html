@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>پیش گزارش آزمایش چهارم – شیفت رجیستر | آزمایشگاه مدار منطقی</title>
+<style>
+@font-face{font-family:"IRAN";src:url("fonts/iran-regular.ttf");font-weight:400}
+@font-face{font-family:"IRAN";src:url("fonts/iran-semibold.ttf");font-weight:600}
+@font-face{font-family:"IRAN";src:url("fonts/iran-bold.ttf");font-weight:700}
+:root{--navy:#16305c;--blue:#2b5aa6;--soft:#e4ebf5;--soft2:#f4f7fc;--line:#a9b8d3;--ink:#1d2433;--mut:#6b7488;
+ --amber:#b45309;--amberbg:#fff6e5;--green:#0f766e;--greenbg:#e8f5f2;--red:#be123c}
+@page{size:A4;margin:21mm 17mm 22mm;
+ @bottom-center{content:"پیش گزارش آزمایش چهارم  –  صفحه " counter(page) " از " counter(pages);font-family:"IRAN";font-size:8.5pt;color:#6b7488}
+ @top-right{content:"آزمایشگاه مدار منطقی";font-family:"IRAN";font-size:8.5pt;color:#6b7488;border-bottom:.6pt solid #a9b8d3;width:100%;padding-bottom:2mm}
+ @top-left{content:"آزمایش چهارم · شیفت رجیستر";font-family:"IRAN";font-size:8.5pt;color:#6b7488;border-bottom:.6pt solid #a9b8d3;width:100%;padding-bottom:2mm}}
+@page :first{margin:15mm 17mm 20mm;@top-right{content:none;border:0}@top-left{content:none;border:0}}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font-family:"IRAN",Tahoma,sans-serif;font-size:10.4pt;line-height:1.95;color:var(--ink);text-align:justify}
+.en{font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block;font-size:.95em}
+.bin{font-family:"DejaVu Sans Mono",Consolas,"Courier New",monospace;direction:ltr;unicode-bidi:isolate;display:inline-block;letter-spacing:.08em;font-size:.92em;font-weight:600}
+.ov{text-decoration:overline;text-decoration-thickness:1px}
+.mut{color:var(--mut);font-size:.85em}
+a{color:var(--blue)}
+p{margin:0 0 .6em}
+
+/* ---------- cover ---------- */
+.cover{page-break-after:always;text-align:center;height:255mm}
+.cover .bism{font-size:13pt;margin:0 0 3mm}
+.cover .logo{width:26mm;height:26mm;display:block;margin:0 auto 2mm}
+.cover .uni{font-weight:700;font-size:16.5pt;color:var(--navy);margin:0}
+.cover .ttl{font-weight:700;font-size:21pt;color:var(--navy);margin:4mm 0 3mm}
+.cover .rule{border:0;border-top:2.2pt solid var(--navy);margin:0}
+.cover .sub{font-weight:700;font-size:15pt;margin:0;padding:3.5mm 0;color:#111}
+.cover table{width:100%;border-collapse:collapse;margin:5mm 0 5mm;font-size:10.2pt;text-align:right}
+.cover td{border:1pt solid var(--line);padding:2.4mm 4mm;vertical-align:middle}
+.cover td.k{background:var(--soft);color:var(--navy);font-weight:700;width:33%}
+.toc{background:var(--soft2);border:1pt solid #c7d3ea;border-radius:5mm;padding:4mm 8mm 3mm;text-align:right}
+.toc h4{margin:0 0 2mm;color:var(--navy);font-size:11.5pt}
+.toc ol{margin:0;padding:0 7mm 0 0;font-size:10.6pt;line-height:1.9}
+
+/* ---------- headings ---------- */
+h2{font-size:15pt;color:#fff;background:linear-gradient(270deg,var(--navy),var(--blue));margin:7mm 0 4mm;padding:2mm 4mm;border-radius:2.5mm;
+   display:flex;align-items:center;gap:3mm;break-after:avoid;page-break-after:avoid}
+h2 .num{background:#fff;color:var(--navy);width:8mm;height:8mm;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11.5pt;flex:none}
+h3{font-size:12pt;color:var(--navy);margin:5mm 0 2mm;padding-right:3mm;border-right:3pt solid var(--blue);break-after:avoid;page-break-after:avoid}
+h3.part{display:flex;align-items:center;gap:3mm;border:0;padding:0;margin:7mm 0 2.5mm;font-size:13pt;border-bottom:1.2pt solid var(--line);padding-bottom:1.5mm}
+h3.part .let{background:var(--navy);color:#fff;min-width:9mm;height:9mm;border-radius:2mm;display:inline-flex;align-items:center;justify-content:center;font-size:12pt;padding:0 2mm}
+h4{font-size:10.6pt;color:var(--blue);margin:3.5mm 0 1mm;break-after:avoid}
+.brk{break-before:page;page-break-before:always}
+.brk h2:first-child{margin-top:0}
+
+/* ---------- boxes ---------- */
+.box{border-radius:2.5mm;padding:2.6mm 4mm;margin:3.5mm 0;border-right:3pt solid;break-inside:avoid;font-size:10pt;line-height:1.85}
+.box b.t{display:block;margin-bottom:.5mm}
+.note{background:var(--soft2);border-color:var(--blue)} .note b.t{color:var(--blue)}
+.tip{background:var(--greenbg);border-color:var(--green)} .tip b.t{color:var(--green)}
+.warn{background:var(--amberbg);border-color:var(--amber)} .warn b.t{color:var(--amber)}
+.eq{direction:ltr;text-align:center;font-family:"Cambria Math","STIX Two Math","DejaVu Serif",Georgia,serif;font-size:11.5pt;background:var(--soft2);border:1pt solid #d3dcee;border-radius:2mm;padding:2mm 4mm;margin:2.5mm 0;break-inside:avoid;line-height:1.7}
+.eq.multi{line-height:2}
+ul,ol{margin:.4em 0 .8em;padding-right:6mm}
+li{margin-bottom:.25em}
+
+/* ---------- tables ---------- */
+table.data{width:100%;border-collapse:collapse;margin:3mm 0 4mm;font-size:9.6pt;line-height:1.7;break-inside:avoid}
+table.data th{background:var(--navy);color:#fff;padding:1.6mm 2.4mm;border:1pt solid var(--navy);font-weight:600}
+table.data td{padding:1.4mm 2.4mm;border:.8pt solid #c4cfe4;vertical-align:middle}
+table.data tbody tr:nth-child(even){background:var(--soft2)}
+table.data.c td,table.data.c th{text-align:center}
+table.data tr.hit td{background:#fde8ec;font-weight:700}
+table.cap{margin-bottom:1mm}
+.tcap{font-size:9pt;color:var(--mut);text-align:center;margin:-2mm 0 4mm}
+
+/* ---------- figures ---------- */
+body{counter-reset:fig}
+figure{margin:4mm 0;break-inside:avoid;page-break-inside:avoid;text-align:center}
+figcaption{font-size:9.4pt;color:#3b4560;margin-top:2mm;text-align:center;line-height:1.7}
+figcaption::before{counter-increment:fig;content:"شکل " counter(fig) " – ";font-weight:700;color:var(--navy)}
+svg.dg{width:100%;height:auto;max-height:80mm;display:block;margin:0 auto}
+svg .sv{font:500 11.5px Inter,"DejaVu Sans",sans-serif;fill:#1d2433}
+svg .svp{font:600 13px "IRAN",sans-serif;fill:#16305c}
+svg .sv.en,svg .svp.en{font-family:Inter,"DejaVu Sans",sans-serif}
+svg .small{font-size:10.5px} svg .tiny{font-size:9px}
+.svgwrap{background:#fff;border:1pt solid #d6deee;border-radius:2.5mm;padding:3mm}
+.slot{border:1.4pt dashed #7b91bd;border-radius:2.5mm;background:repeating-linear-gradient(135deg,#f6f8fd 0 6px,#eef2fa 6px 12px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm;padding:4mm 3mm;min-height:40mm;text-align:center;color:#41557f}
+.slot svg{width:11mm;height:11mm;opacity:.75}
+.slot .tag{font-size:8.4pt;font-weight:700;color:var(--blue);letter-spacing:0}
+.slot .fn{font-family:"DejaVu Sans Mono",Consolas,monospace;font-size:8.2pt;direction:ltr;background:#fff;border:.8pt solid #c4cfe4;border-radius:1.5mm;padding:.4mm 2mm;color:#16305c}
+.slot .hint{font-size:8.8pt;line-height:1.6;color:#3b4560;max-width:120mm}
+.slot.sm{min-height:30mm;padding:2.5mm 2mm}.slot.sm svg{width:8mm;height:8mm}
+.slot.real{border-color:#c28a3a;background:repeating-linear-gradient(135deg,#fffaf0 0 6px,#fdf3de 6px 12px);color:#7a5418}
+.slot.real .tag{color:var(--amber)}
+.slotimg{width:100%;border-radius:2mm;border:.8pt solid #c4cfe4;display:block}
+div.grid{display:grid;gap:2.5mm}.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}
+.gsub{font-size:8.6pt;color:#3b4560;margin-top:1mm;display:block}
+.cell{text-align:center}
+.ghbox{display:flex;align-items:center;gap:4mm;background:linear-gradient(270deg,#eef3fb,#fff);border:1pt solid #c7d3ea;border-radius:3mm;padding:3mm 4mm;margin:4mm 0;break-inside:avoid}
+.ghbox .ic{flex:none;width:10mm;height:10mm;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ghbox .ic svg{width:6mm;height:6mm;fill:#fff}
+.ghbox a{font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.two>div{break-inside:avoid}
+</style>
+</head>
+<body>
+
+<!-- ============================ صفحه‌ی اول ============================ -->
+<section class="cover">
+  <p class="bism">بسمه تعالی</p>
+  <img class="logo" src="assets/sharif-logo.png" alt="آرم دانشگاه صنعتی شریف">
+  <p class="uni">دانشگاه صنعتی شریف – دانشکده مهندسی کامپیوتر</p>
+  <p class="ttl">پیش گزارش آزمایشگاه مدار منطقی</p>
+  <hr class="rule">
+  <p class="sub">آزمایش چهارم – شیفت رجیستر (Shift Register)</p>
+  <hr class="rule">
+  <table>
+    <tr><td class="k">اعضای گروه</td><td>حمیدرضا فرقدانی ([[404106163]]) – علی امیرآبادی زاده – کامیار حقیقت دوست</td></tr>
+    <tr><td class="k">نام استاد</td><td>دکتر انصاری</td></tr>
+    <tr><td class="k">گروه</td><td>گروه ۷ – دوشنبه ساعت [[13:00]] تا [[16:00]]</td></tr>
+    <tr><td class="k">نرم‌افزار شبیه‌سازی</td><td>[[Proteus ISIS]]</td></tr>
+    <tr><td class="k">تراشه‌های اصلی</td><td>[[7495]] (شیفت رجیستر ۴ بیتی) – [[7474]] (فلیپ‌فلاپ D) – [[7408]] / [[7432]] / [[7404]] / [[7486]] (گیت‌های منطقی)</td></tr>
+  </table>
+  <div class="toc">
+    <h4>فهرست مطالب</h4>
+    <ol>
+      <li>مقدمه و مبانی نظری</li>
+      <li>ابزار و قطعات مورد نیاز</li>
+      <li>بلوک دیاگرام و استدلال طراحی</li>
+      <li>شرح آزمایش، طراحی و نتایج شبیه‌سازی (بخش‌های الف تا ح)</li>
+      <li>پین‌دیاگرام طرح نهایی و تغییرات</li>
+      <li>نتایج مورد انتظار و جمع‌بندی</li>
+      <li>منابع</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ ۱. مقدمه ============================ -->
+<section>
+<h2><span class="num">۱</span>مقدمه و مبانی نظری</h2>
+
+<h3>۱-۱ هدف آزمایش</h3>
+<p>هدف از این آزمایش، <b>پیاده‌سازی شیفت رجیستر</b> است: ابتدا با استفاده از فلیپ‌فلاپ‌های [[D]] و گیت‌های منطقی (یا مالتی‌پلکسر)، یک شیفت رجیستر یک‌طرفه و یک شیفت رجیستر دوطرفه ساخته می‌شود؛ سپس همین عملکرد با تراشه‌ی آماده‌ی [[7495]] بازسازی می‌گردد. در ادامه از شیفت رجیستر برای ساخت <b>شمارنده‌ی جانسون</b> و یک <b>آشکارساز دنباله</b> (دنباله‌های [[1101]]، [[1110]]، [[0010]] و [[0001]]) استفاده می‌شود. این پیش‌گزارش، طراحی و شبیه‌سازی اولیه در [[Proteus ISIS]] را پوشش می‌دهد و نتایج آزمایش واقعی بعداً به آن افزوده می‌شود.</p>
+
+<h3>۱-۲ شیفت رجیستر چیست؟</h3>
+<p>شیفت رجیستر مجموعه‌ای از فلیپ‌فلاپ‌های متوالی با <b>کلاک مشترک</b> است که خروجی هر طبقه به ورودی طبقه‌ی بعد متصل می‌شود. با هر لبه‌ی فعال کلاک، محتوای ثبات یک خانه جابه‌جا می‌شود و یک بیت جدید از ورودی سریال وارد می‌گردد. بر اساس روش ورود و خروج داده، چهار حالت کلی داریم: سریال‌به‌سریال ([[SISO]])، سریال‌به‌موازی ([[SIPO]])، موازی‌به‌سریال ([[PISO]]) و موازی‌به‌موازی ([[PIPO]]). کاربردهای متداول آن عبارت‌اند از تبدیل داده‌ی سریال و موازی، ایجاد تأخیر زمانی، ضرب و تقسیم در توان‌های ۲، ساخت شمارنده‌های حلقوی و جانسون و تشخیص الگو در جریان داده.</p>
+
+<h3>۱-۳ قرارداد نام‌گذاری در این گزارش</h3>
+<p>در تمام این گزارش، ثبات را به‌صورت {{QA QB QC QD}} می‌نویسیم. ورودی سریال [[SE]] به طبقه‌ی [[A]] وارد می‌شود و با هر کلاک داده از [[QA]] به سمت [[QD]] حرکت می‌کند؛ این جهت را «<b>شیفت به راست</b>» می‌نامیم (مطابق تعریف تراشه‌ی [[7495]]). بنابراین مقدار اولیه‌ی {{1010}} یعنی [[A=1]]، [[B=0]]، [[C=1]] و [[D=0]].</p>
+
+<h3>۱-۴ معادله‌ی هر طبقه</h3>
+<p>در شکل ۱ دستورکار، ورودی هر فلیپ‌فلاپ از یک انتخابگر ۲ به ۱ (به‌صورت [[AND-OR]]) می‌آید: اگر [[PE]] (<i>Parallel Enable</i>) برابر ۱ باشد ورودی موازی بارگذاری می‌شود و اگر ۰ باشد داده‌ی طبقه‌ی قبل شیفت می‌یابد:</p>
+<div class="eq multi">D<sub>A</sub> = PE·A + <span class="ov">PE</span>·SE &nbsp;&nbsp;|&nbsp;&nbsp; D<sub>B</sub> = PE·B + <span class="ov">PE</span>·Q<sub>A</sub><br>D<sub>C</sub> = PE·C + <span class="ov">PE</span>·Q<sub>B</sub> &nbsp;&nbsp;|&nbsp;&nbsp; D<sub>D</sub> = PE·D + <span class="ov">PE</span>·Q<sub>C</sub></div>
+<figure><div class="svgwrap">%%SVG_STAGE%%</div><figcaption>ساختار گیت‌سطح یک طبقه از شیفت رجیستر: دو گیت [[AND]]، یک گیت [[OR]]، یک معکوس‌کننده و یک فلیپ‌فلاپ [[D]]</figcaption></figure>
+
+<h3>۱-۵ شمارنده‌ی جانسون</h3>
+<p>اگر خروجی وارون آخرین طبقه ([[Q̅D]]) به ورودی سریال اولین طبقه ([[SE]]) وصل شود، شمارنده‌ی جانسون (<i>twisted-ring</i>) به دست می‌آید. یک شمارنده‌ی جانسون با [[n]] فلیپ‌فلاپ، [[2n]] حالت دارد؛ پس نسخه‌ی ۴ بیتی ما یک شمارنده‌ی <b>مدولو ۸</b> است و فرکانس هر خروجی برابر [[f_clk / 8]] با چرخه‌ی کاری ۵۰٪ خواهد بود. مزیت مهم آن این است که در هر گذار فقط <b>یک بیت</b> تغییر می‌کند، بنابراین رمزگشایی حالت‌ها با گیت‌های دو‌ورودی و بدون خطر <i>glitch</i> انجام می‌شود.</p>
+
+<h3>۱-۶ آشکارساز دنباله با پنجره‌ی لغزنده</h3>
+<p>اگر بیت‌های ورودی به‌صورت سریال وارد ثبات ۴ بیتی شوند، ثبات همواره ۴ بیت اخیر را نگه می‌دارد (پنجره‌ی لغزنده). یک مدار ترکیبی روی خروجی‌های ثبات، در صورت برابری محتوا با یکی از الگوهای مطلوب، خروجی [[Z]] را ۱ می‌کند. چون پنجره پیوسته جابه‌جا می‌شود، مدار «دائماً به دنبال دنباله می‌گردد» و دنباله‌های هم‌پوشان نیز شناسایی می‌شوند.</p>
+
+<h3>۱-۷ تراشه‌ی ۷۴۹۵</h3>
+<p>[[7495]] یک شیفت رجیستر ۴ بیتی با دسترسی موازی است که دو ورودی کلاک مجزا دارد و با پایه‌ی [[MODE]] کنترل می‌شود. هر دو کلاک روی <b>لبه‌ی پایین‌رونده</b> ([[↓]]) عمل می‌کنند (برخلاف [[7474]] که لبه‌ی بالارونده است).</p>
+<table class="data c">
+<thead><tr><th>MODE (پایه ۶)</th><th>کلاک فعال</th><th>عملکرد</th></tr></thead>
+<tbody>
+<tr><td>{{0}}</td><td>[[CLK1]] (پایه ۹)</td><td>شیفت به راست: [[SER → QA → QB → QC → QD]]</td></tr>
+<tr><td>{{1}}</td><td>[[CLK2]] (پایه ۸)</td><td>بارگذاری موازی [[A B C D]] (و در صورت سیم‌کشی [[QD→C، QC→B، QB→A]]، شیفت به چپ)</td></tr>
+</tbody></table>
+<div class="box warn"><b class="t">نکته‌ی مهم</b>پیش از اتصال نهایی مدار، حتماً جدول عملکرد و شماره‌ی پایه‌ها را با برگه‌ی اطلاعات (<i>datasheet</i>) تراشه‌ی در اختیار آزمایشگاه (مثلاً [[74LS95]]) مقایسه کنید.</div>
+</section>
+
+<!-- ============================ ۲. قطعات ============================ -->
+<section>
+<h2><span class="num">۲</span>ابزار و قطعات مورد نیاز</h2>
+<p>جدول زیر قطعات لازم برای پیاده‌سازی واقعی و شبیه‌سازی را نشان می‌دهد. چون مدارهای بخش‌های الف، ب، پ، ت و ج روی یک بُرد و با تغییرات جزئی سیم‌کشی ساخته می‌شوند، تعداد قطعات بر اساس بیشترین نیاز لحاظ شده است.</p>
+<table class="data c">
+<thead><tr><th>ردیف</th><th>قطعه</th><th>تعداد</th><th>کاربرد</th></tr></thead>
+<tbody>
+<tr><td>۱</td><td>[[7474]] – دو فلیپ‌فلاپ D</td><td>۲</td><td>چهار طبقه‌ی شیفت رجیستر (بخش‌های الف، ب، پ، ت، ج)</td></tr>
+<tr><td>۲</td><td>[[7408]] – چهار [[AND]] دو‌ورودی</td><td>۳</td><td>۸ گیت برای انتخابگر + ۱ گیت برای آشکارساز</td></tr>
+<tr><td>۳</td><td>[[7432]] – چهار [[OR]] دو‌ورودی</td><td>۱</td><td>ترکیب خروجی انتخابگرها (۴ گیت)</td></tr>
+<tr><td>۴</td><td>[[7404]] – شش [[NOT]]</td><td>۱</td><td>معکوس‌کردن [[PE]]/[[DIR]]، تولید [[Q̅D]]، معکوس [[XOR]] (آشکارساز)</td></tr>
+<tr><td>۵</td><td>[[7486]] – چهار [[XOR]] دو‌ورودی</td><td>۱</td><td>مدار تشخیص دنباله (بخش ح)</td></tr>
+<tr><td>۶</td><td>[[7495]] – شیفت رجیستر ۴ بیتی</td><td>۱</td><td>بخش‌های چ و ح</td></tr>
+<tr><td>۷</td><td>[[NE555]] + مقاومت و خازن</td><td>۱</td><td>مولد کلاک (آزمایش قبل) برای مشاهده‌ی چشمی [[LED]]ها</td></tr>
+<tr><td>۸</td><td>[[LED]] + مقاومت [[330 Ω]]</td><td>۸</td><td>نمایش خروجی‌ها ([[QA…QD]] و [[Z]])</td></tr>
+<tr><td>۹</td><td>کلید [[DIP]] / شستی + مقاومت [[10 kΩ]]</td><td>۶</td><td>[[A B C D]]، [[SE]]، [[PE]]، [[DIR]]، [[MODE]]، کلاک دستی</td></tr>
+<tr><td>۱۰</td><td>برد بورد، منبع [[5 V]]، سیم‌های رابط</td><td>—</td><td>ساخت مدار واقعی</td></tr>
+<tr><td>۱۱</td><td>اسیلوسکوپ / آنالایزر منطقی</td><td>۱</td><td>مشاهده‌ی نمودار زمانی</td></tr>
+<tr><td>۱۲</td><td>[[Proteus ISIS]] (نسخه‌ی ۸ یا بالاتر)</td><td>—</td><td>شبیه‌سازی اولیه</td></tr>
+</tbody></table>
+<p>مقاومت سری با [[LED]] از رابطه‌ی [[R = (5 − 2) / 10 mA ≈ 300 Ω]] به دست می‌آید و نزدیک‌ترین مقدار استاندارد، [[330 Ω]] است. برای تولید کلاک با [[NE555]] در حالت ناپایدار از [[f = 1.44 / ((R1 + 2R2)·C)]] استفاده می‌شود؛ مثلاً با [[R1 = 10 kΩ]]، [[R2 = 47 kΩ]] و [[C = 10 µF]] فرکانس حدود [[1.4 Hz]] می‌شود که برای دیدن تغییر [[LED]]ها با چشم مناسب است.</p>
+
+<!-- TODO(real photo): عکس قطعات و تجهیزات آزمایشگاه
+<figure class="real" data-src="real-parts-overview.jpg" data-cap="قطعات و تجهیزات استفاده‌شده در آزمایشگاه" data-hint="عکس برد بورد، تراشه‌ها، منبع تغذیه و کلیدها که قبل از شروع مدار کنار هم چیده‌اید."></figure>
+-->
+</section>
+
+<!-- ============================ ۳. بلوک دیاگرام ============================ -->
+<section>
+<h2><span class="num">۳</span>بلوک دیاگرام و استدلال طراحی</h2>
+<p>تمام بخش‌های آزمایش از یک ساختار مشترک استفاده می‌کنند: <b>لایه‌ی انتخابگر</b> تعیین می‌کند هر فلیپ‌فلاپ در لبه‌ی بعدی کلاک چه مقداری بگیرد، و <b>ثبات چهار‌بیتی</b> آن را ذخیره می‌کند. تفاوت بخش‌ها فقط در سیم‌کشی انتخابگر و خروجی‌هاست.</p>
+<figure><div class="svgwrap">%%SVG_BLOCK%%</div><figcaption>بلوک دیاگرام کلی مدار: ورودی‌ها، انتخابگر ۲ به ۱، ثبات ۴ بیتی، مولد کلاک و خروجی‌ها</figcaption></figure>
+
+<h3>۳-۱ چرا فلیپ‌فلاپ D؟</h3>
+<p>در فلیپ‌فلاپ [[D]] معادله‌ی حالت بعد ساده است ([[Q⁺ = D]])، پس ورودی هر طبقه مستقیماً همان مقداری است که انتخابگر می‌سازد. این کار طراحی را از جدول تحریک [[JK]] یا [[T]] بی‌نیاز می‌کند و شیفت را بدون منطق اضافه ممکن می‌سازد.</p>
+<h3>۳-۲ انتخابگر: [[AND-OR]] یا [[MUX]]</h3>
+<p>دستورکار هر دو گزینه را مجاز می‌داند. پیاده‌سازی [[AND-OR]] به ۴ تراشه نیاز دارد ([[2×7408]]، [[7432]]، [[7404]])، اما دقیقاً همان ساختار نمودار دستورکار است و عملکرد منطقی را شفاف نشان می‌دهد. جایگزین آن، یک تراشه‌ی [[74157]] (چهار انتخابگر ۲ به ۱ با خط انتخاب مشترک) است که تعداد تراشه و سیم را به‌شدت کم می‌کند. ما در شبیه‌سازی از ساختار [[AND-OR]] استفاده می‌کنیم و [[74157]] را به‌عنوان گزینه‌ی کم‌سیم برای بُرد واقعی نگه می‌داریم.</p>
+<h3>۳-۳ نگاشت بخش‌های آزمایش به بلوک‌ها</h3>
+<table class="data c">
+<thead><tr><th>بخش</th><th>تنظیم انتخابگر</th><th>ورودی سریال</th><th>خروجی مورد بررسی</th></tr></thead>
+<tbody>
+<tr><td>الف</td><td>[[PE]] ثابت ۰ (شیفت)</td><td>[[SE]] (کلید)</td><td>[[QA…QD]]</td></tr>
+<tr><td>ب</td><td>[[PE=1]] برای یک کلاک، سپس [[PE=0]]</td><td>—</td><td>بارگذاری {{1010}}</td></tr>
+<tr><td>پ</td><td>[[PE=0]]</td><td>[[SE]] = {{0}} یا الگو</td><td>شیفت به راست</td></tr>
+<tr><td>ت</td><td>[[PE=0]]</td><td>[[SE = Q̅D]]</td><td>شمارنده‌ی جانسون</td></tr>
+<tr><td>ج</td><td>[[DIR]] (راست/چپ)، بدون ورودی موازی</td><td>[[SE]] و [[SL]]</td><td>شیفت دوطرفه</td></tr>
+<tr><td>چ</td><td>[[MODE]] روی تراشه‌ی [[7495]]</td><td>[[SER]]</td><td>[[QA…QD]]</td></tr>
+<tr><td>ح</td><td>ثبات + گیت‌های [[XOR]]/[[AND]]</td><td>[[X]]</td><td>[[Z]]</td></tr>
+</tbody></table>
+</section>
+
+<!-- ============================ ۴. شرح آزمایش ============================ -->
+<section class="brk">
+<h2><span class="num">۴</span>شرح آزمایش، طراحی و نتایج شبیه‌سازی</h2>
+<div class="ghbox"><div class="ic"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div>
+<div>فایل پروژه‌ی [[Proteus]] ([[.pdsprj]]) و تمام تصاویر این گزارش را می‌توانید از <a class="gh" href="https://github.com/">مخزن گیت‌هاب گروه (دانلود فایل پروتئوس و تصاویر)</a> دریافت کنید.</div></div>
+
+<p>در ادامه هر بخش از دستورکار (الف تا ح) به‌صورت «طراحی ← نتایج مورد انتظار ← تصاویر شبیه‌سازی» ارائه می‌شود. جدول‌ها و نمودارهای زمانی <b>نظری</b> مبنای مقایسه با نتایج [[Proteus]] و بُرد واقعی هستند. کلاک تمام مدارهای گسسته با [[7474]] روی لبه‌ی <b>بالارونده</b> عمل می‌کند.</p>
+
+<!-- ---------------- الف ---------------- -->
+<h3 class="part"><span class="let">الف</span>ساخت مدار شکل (۱) – شیفت رجیستر یک‌طرفه</h3>
+<p>مدار را مطابق شکل ۱ دستورکار با چهار فلیپ‌فلاپ [[D]]، هشت گیت [[AND]]، چهار گیت [[OR]] و یک معکوس‌کننده می‌بندیم. پایه‌های [[PRE̅]] و [[CLR̅]] هر [[7474]] به [[VCC]] وصل می‌شوند تا غیرفعال بمانند. مولد کلاک ([[CLOCK]]/[[DCLOCK]]) به پایه‌ی کلاک هر چهار فلیپ‌فلاپ وصل است و [[LED]]ها (یا [[LOGICPROBE]]) خروجی‌های [[QA…QD]] را نشان می‌دهند.</p>
+<figure class="sim" data-src="a1-schematic-unidirectional.png" data-cap="شماتیک کامل مدار شیفت رجیستر یک‌طرفه در [[Proteus]]" data-hint="نمای کامل شماتیک شکل ۱ دستورکار در ISIS شامل ۴ فلیپ‌فلاپ، گیت‌های AND/OR، کلیدهای SE و PE، مولد کلاک و LEDها. همه‌ی برچسب‌ها (QA..QD, SE, PE, CLK) خوانا باشند."></figure>
+<figure class="sim" data-src="a2-schematic-one-stage-closeup.png" data-cap="بزرگ‌نمایی یک طبقه (انتخابگر [[AND-OR]] و فلیپ‌فلاپ [[D]])" data-hint="زوم روی طبقه‌ی B: دو AND، یک OR و فلیپ‌فلاپ، با نام شبکه‌ها (Net label) برای PE و PE̅."></figure>
+<!--
+<figure class="real" data-src="real-a-breadboard-unidirectional.jpg" data-cap="مدار شیفت رجیستر یک‌طرفه روی برد بورد" data-hint="عکس کلی برد بورد با تراشه‌ها، سیم‌کشی و LEDهای خروجی."></figure>
+-->
+
+<!-- ---------------- ب ---------------- -->
+<h3 class="part"><span class="let">ب</span>مقدار اولیه‌ی {{1010}} با کلیدهای [[PE]] و [[SE]]</h3>
+<p>چون فلیپ‌فلاپ‌ها همگام هستند، بارگذاری نیاز به <b>یک لبه‌ی کلاک</b> دارد: کلید [[PE]] را روی ۱ می‌گذاریم، ورودی‌های موازی را روی [[A=1, B=0, C=1, D=0]] تنظیم می‌کنیم، یک کلاک می‌دهیم تا {{1010}} در ثبات ذخیره شود، و سپس [[PE]] را به ۰ برمی‌گردانیم تا مدار وارد حالت شیفت شود.</p>
+<table class="data c">
+<thead><tr><th>گام</th><th>PE</th><th>A B C D</th><th>کلاک</th><th>QA QB QC QD</th></tr></thead>
+<tbody>
+<tr><td>۱</td><td>{{1}}</td><td>{{1010}}</td><td>—</td><td>قبلی (نامعلوم)</td></tr>
+<tr><td>۲</td><td>{{1}}</td><td>{{1010}}</td><td>↑</td><td>{{1010}}</td></tr>
+<tr><td>۳</td><td>{{0}}</td><td>—</td><td>—</td><td>{{1010}} (حفظ)</td></tr>
+</tbody></table>
+<div class="box tip"><b class="t">راه جایگزین</b>می‌توان با پایه‌های ناهمگام [[PRE̅]] و [[CLR̅]] ([[7474]]) هم مقدار اولیه را بدون کلاک بارگذاری کرد؛ ما برای هم‌خوانی با شکل ۱ دستورکار از مسیر [[PE]] استفاده کرده‌ایم.</div>
+<figure class="sim grid c2" data-cap="بارگذاری مقدار اولیه‌ی {{1010}}: (راست) پیش از کلاک، (چپ) پس از کلاک">
+  <i data-src="b1-load-1010-before-clock.png" data-sub="(الف) PE=1 و ورودی‌های ABCD=1010 قبل از کلاک" data-hint="کلیدها در وضعیت بارگذاری؛ خروجی‌ها هنوز مقدار قبلی."></i>
+  <i data-src="b2-load-1010-after-clock.png" data-sub="(ب) پس از یک کلاک: QA..QD = 1010" data-hint="LEDها/پروب‌ها وضعیت 1010 را نشان دهند."></i>
+</figure>
+<!--
+<figure class="real" data-src="real-b-load-1010-leds.jpg" data-cap="مقدار اولیه‌ی 1010 روی LEDهای برد بورد" data-hint="عکس LEDها پس از بارگذاری؛ وضعیت کلیدها هم در کادر باشد."></figure>
+-->
+
+<!-- ---------------- پ ---------------- -->
+<h3 class="part"><span class="let">پ</span>شیفت رجیستر با قابلیت شیفت به راست</h3>
+<p>با [[PE=0]] ورودی هر طبقه از طبقه‌ی قبل می‌آید و [[SE]] داده‌ی جدید را وارد [[QA]] می‌کند. در جدول اول، ثبات از {{1010}} شروع می‌کند و [[SE=0]] است (داده‌ها «تخلیه» می‌شوند). در جدول دوم، چهار بیت {{1101}} به‌ترتیب وارد ثبات خالی می‌شود؛ بیت اول ورودی پس از چهار کلاک به [[QD]] می‌رسد، یعنی ثبات ترتیب ورود را <b>وارونه</b> نشان می‌دهد (موضوعی که در بخش ح اهمیت دارد).</p>
+<div class="two"><div><h4>تخلیه‌ی {{1010}} با [[SE=0]]</h4>%%TBL_SHIFT0%%</div><div><h4>ورود سریال {{1101}} به ثبات خالی</h4>%%TBL_SHIFT1%%</div></div>
+<figure><div class="svgwrap">%%SVG_W_RIGHT%%</div><figcaption>نمودار زمانی نظری شیفت به راست ([[SE=0]]، شروع از {{1010}}): ردیف‌ها [[QA…QD]] پس از هر لبه‌ی بالارونده به‌روز می‌شوند</figcaption></figure>
+<figure class="sim grid c4" data-cap="مراحل شیفت به راست در [[Proteus]]، کلاک‌های ۱ تا ۴">
+  <i data-src="c1-shift-right-clk1.png" data-sub="کلاک ۱ ← 0101" data-hint="وضعیت LEDها پس از کلاک اول."></i>
+  <i data-src="c2-shift-right-clk2.png" data-sub="کلاک ۲ ← 0010" data-hint="پس از کلاک دوم."></i>
+  <i data-src="c3-shift-right-clk3.png" data-sub="کلاک ۳ ← 0001" data-hint="پس از کلاک سوم."></i>
+  <i data-src="c4-shift-right-clk4.png" data-sub="کلاک ۴ ← 0000" data-hint="پس از کلاک چهارم."></i>
+</figure>
+<figure class="sim" data-src="c5-shift-right-logic-analyser.png" data-cap="نمودار زمانی شبیه‌سازی‌شده‌ی شیفت به راست ([[Digital/Logic Analyser]])" data-hint="تحلیلگر منطقی Proteus با سیگنال‌های CLK, SE, QA, QB, QC, QD برای شروع از 1010 و SE=0. کلاک حداقل ۶ پالس نشان داده شود."></figure>
+<!--
+<figure class="real" data-src="real-c-shift-right-sequence.jpg" data-cap="شیفت به راست روی برد بورد (حالت‌های متوالی)" data-hint="یک عکس یا کلاژ از LEDها در ۴ کلاک پشت‌سرهم."></figure>
+-->
+
+<!-- ---------------- ت ---------------- -->
+<h3 class="part"><span class="let">ت</span>تبدیل به شمارنده‌ی جانسون و نمودار زمانی</h3>
+<p>با وصل‌کردن [[Q̅D]] (از طریق یک گیت [[NOT]]) به ورودی سریال [[SE]]، مدار پس از <b>پاک‌شدن</b> (شروع از {{0000}}) به‌ترتیب هشت حالت زیر را طی می‌کند و دوباره به {{0000}} برمی‌گردد.</p>
+<figure><div class="svgwrap">%%SVG_JOHNSON%%</div><figcaption>ساختار شمارنده‌ی جانسون ۴ بیتی با فیدبک [[Q̅D → SE]]</figcaption></figure>
+%%TBL_JOHNSON%%
+<p>هر حالت با یک گیت [[AND]] دو‌ورودی روی دو بیت مجاور رمزگشایی می‌شود (ستون «عبارت رمزگشایی»)، چون در هر حالت فقط مرز بین بیت‌های ۱ و ۰ منحصربه‌فرد است. هر خروجی دوره‌ی تناوب [[8T]] و چرخه‌ی کاری ۵۰٪ دارد و نسبت به خروجی قبلی یک کلاک ([[T]]) تأخیر دارد:</p>
+<div class="eq">f<sub>Q</sub> = f<sub>CLK</sub> / (2n) = f<sub>CLK</sub> / 8</div>
+<figure><div class="svgwrap">%%SVG_W_JOHNSON%%</div><figcaption>نمودار زمانی نظری شمارنده‌ی جانسون (شروع از {{0000}}، ۱۶ کلاک = دو دوره‌ی کامل)</figcaption></figure>
+<figure class="sim" data-src="d1-johnson-schematic.png" data-cap="شماتیک شمارنده‌ی جانسون در [[Proteus]]" data-hint="مدار بخش الف با اتصال خروجی Q̅D (از NOT) به ورودی SE. کلید PE در حالت شیفت و مسیر پاک‌سازی/بارگذاری 0000 مشخص باشد."></figure>
+<figure class="sim" data-src="d2-johnson-timing-analyser.png" data-cap="نمودار زمانی شمارنده‌ی جانسون ([[Logic Analyser]])" data-hint="سیگنال‌های CLK, QA, QB, QC, QD برای حداقل ۱۶ کلاک (دو دوره‌ی کامل). نشانگر (cursor) روی یک دوره‌ی کامل قرار گیرد تا تناوب 8T دیده شود."></figure>
+<figure class="sim grid c4" data-cap="هشت حالت شمارنده‌ی جانسون روی LEDها (پس از هر کلاک)">
+  <i data-src="d3-johnson-state-0.png" data-sub="S0 = 0000" data-hint="شروع."></i>
+  <i data-src="d3-johnson-state-1.png" data-sub="S1 = 1000" data-hint="کلاک ۱."></i>
+  <i data-src="d3-johnson-state-2.png" data-sub="S2 = 1100" data-hint="کلاک ۲."></i>
+  <i data-src="d3-johnson-state-3.png" data-sub="S3 = 1110" data-hint="کلاک ۳."></i>
+  <i data-src="d3-johnson-state-4.png" data-sub="S4 = 1111" data-hint="کلاک ۴."></i>
+  <i data-src="d3-johnson-state-5.png" data-sub="S5 = 0111" data-hint="کلاک ۵."></i>
+  <i data-src="d3-johnson-state-6.png" data-sub="S6 = 0011" data-hint="کلاک ۶."></i>
+  <i data-src="d3-johnson-state-7.png" data-sub="S7 = 0001" data-hint="کلاک ۷."></i>
+</figure>
+
+<h4>حالت‌های غیرمجاز و خودتصحیحی</h4>
+<p>چهار فلیپ‌فلاپ {{16}} حالت دارند ولی چرخه‌ی اصلی فقط ۸ حالت را پوشش می‌دهد. ۸ حالت دیگر یک چرخه‌ی <b>غیرمجاز</b> مستقل می‌سازند و اگر مدار روی یکی از آن‌ها روشن شود هرگز به چرخه‌ی اصلی بازنمی‌گردد. جالب است که مقدار {{1010}} از بخش ب دقیقاً در همین چرخه است؛ پس اگر مدار جانسون از {{1010}} شروع شود رفتار اشتباه می‌بیند.</p>
+%%TBL_INVALID%%
+<div class="box note"><b class="t">اصلاح پیشنهادی (اختیاری)</b>با تغییر فیدبک به <span class="eq" style="display:inline-block;margin:0;padding:0 2mm">SE = <span class="ov">Q<sub>D</sub></span> + Q<sub>A</sub>·<span class="ov">Q<sub>C</sub></span></span> رفتار در حالت‌های مجاز تغییری نمی‌کند، اما هر ۱۶ حالت پس از چند کلاک به چرخه‌ی اصلی می‌رسند (این رابطه با شبیه‌سازی کامل ۱۶ حالت اولیه راستی‌آزمایی شده است). هزینه‌ی آن یک گیت [[AND]] و یک [[OR]] اضافه است.</div>
+<figure class="sim" data-src="d4-johnson-invalid-cycle.png" data-cap="شروع از حالت غیرمجاز {{1010}}: مدار وارد چرخه‌ی غیرمجاز می‌شود" data-hint="تحلیلگر منطقی برای حالتی که ثبات با 1010 بارگذاری و سپس SE=Q̅D فعال شده است؛ دنباله‌ی 1101, 0110, 1011, ... دیده شود."></figure>
+<!--
+<figure class="real" data-src="real-d-johnson-leds.jpg" data-cap="شمارنده‌ی جانسون روی برد بورد" data-hint="عکس LEDها در چند حالت یا ویدیوی/عکس اسیلوسکوپ."></figure>
+<figure class="real" data-src="real-d-johnson-scope.jpg" data-cap="موج خروجی‌های شمارنده‌ی جانسون روی اسیلوسکوپ یا آنالایزر منطقی" data-hint="عکس صفحه‌ی اسیلوسکوپ/آنالایزر با دو یا چهار کانال."></figure>
+-->
+
+<!-- ---------------- ج ---------------- -->
+<h3 class="part"><span class="let">ج</span>شیفت رجیستر دوطرفه – شکل (۲)</h3>
+<p>برای دوطرفه‌شدن، ورودی‌های موازی [[A…D]] حذف می‌شوند و هر طبقه از <b>همسایه‌ی راست</b> یا <b>همسایه‌ی چپ</b> داده می‌گیرد؛ جهت را کلید [[DIR]] تعیین می‌کند ([[DIR=1]] شیفت به راست، [[DIR=0]] شیفت به چپ). دو ورودی سریال [[SE]] (برای شیفت راست، در ابتدای [[QA]]) و [[SL]] (برای شیفت چپ، در انتهای [[QD]]) لازم است:</p>
+<div class="eq multi">D<sub>A</sub> = DIR·SE + <span class="ov">DIR</span>·Q<sub>B</sub> &nbsp;&nbsp;|&nbsp;&nbsp; D<sub>B</sub> = DIR·Q<sub>A</sub> + <span class="ov">DIR</span>·Q<sub>C</sub><br>D<sub>C</sub> = DIR·Q<sub>B</sub> + <span class="ov">DIR</span>·Q<sub>D</sub> &nbsp;&nbsp;|&nbsp;&nbsp; D<sub>D</sub> = DIR·Q<sub>C</sub> + <span class="ov">DIR</span>·SL</div>
+<p>شکل ۲ دستورکار ورودی موازی ندارد، بنابراین مقدار اولیه یا با چند کلاک و ورود سریال و یا با پایه‌های ناهمگام [[PRE̅/CLR̅]] ایجاد می‌شود. جدول زیر یک سناریوی کامل را نشان می‌دهد: ابتدا سه شیفت راست با [[SE=1]] و سپس سه شیفت چپ با [[SL=0]].</p>
+%%TBL_BIDIR%%
+<figure class="sim" data-src="e1-bidirectional-schematic.png" data-cap="شماتیک شیفت رجیستر دوطرفه در [[Proteus]]" data-hint="مدار شکل ۲ با کلید DIR، ورودی‌های SE و SL و LEDهای خروجی."></figure>
+<figure class="sim grid c2" data-cap="شیفت دوطرفه: (راست) شیفت به راست، (چپ) شیفت به چپ">
+  <i data-src="e2-bidir-right-shift.png" data-sub="(الف) DIR=1 · شیفت به راست · SE=1" data-hint="چند عکس/تصویر ترکیبی از حالت‌ها یا یک تصویر از نتیجه‌ی نهایی 1110."></i>
+  <i data-src="e3-bidir-left-shift.png" data-sub="(ب) DIR=0 · شیفت به چپ · SL=0" data-hint="نتیجه‌ی شیفت چپ تا رسیدن به 0000."></i>
+</figure>
+<figure class="sim" data-src="e4-bidir-timing-dir-switch.png" data-cap="نمودار زمانی با تغییر جهت در میانه‌ی کار" data-hint="تحلیلگر منطقی: CLK, DIR, SE, SL, QA..QD برای سناریوی جدول بالا (سه شیفت راست و سه شیفت چپ)."></figure>
+<!--
+<figure class="real" data-src="real-e-bidirectional.jpg" data-cap="شیفت رجیستر دوطرفه روی برد بورد" data-hint="عکس مدار در حالت شیفت به راست و شیفت به چپ."></figure>
+-->
+
+<!-- ---------------- چ ---------------- -->
+<h3 class="part"><span class="let">چ</span>شیفت رجیستر راست‌گرد با تراشه‌ی ۷۴۹۵</h3>
+<p>با مطالعه‌ی برگه‌ی اطلاعات، سیم‌کشی زیر انجام می‌شود: [[VCC]] به پایه‌ی ۱۴ و [[GND]] به پایه‌ی ۷؛ ورودی‌های [[A…D]] به پایه‌های ۲ تا ۵؛ [[MODE]] (پایه‌ی ۶) به کلید؛ کلاک شیفت راست روی [[CLK1]] (پایه‌ی ۹) و کلاک بارگذاری روی [[CLK2]] (پایه‌ی ۸)؛ ورودی سریال [[SER]] پایه‌ی ۱؛ خروجی‌ها [[QA…QD]] پایه‌های ۱۳ تا ۱۰. ابتدا با [[MODE=1]] و یک لبه‌ی پایین‌رونده روی [[CLK2]] مقدار {{1010}} بارگذاری می‌شود و سپس با [[MODE=0]] کلاک‌ها روی [[CLK1]] اعمال می‌گردند.</p>
+%%TBL_7495%%
+<div class="box tip"><b class="t">شیفت به چپ با ۷۴۹۵</b>با [[MODE=1]] و وصل‌کردن [[QD→C]]، [[QC→B]]، [[QB→A]] و اعمال کلاک روی [[CLK2]]، تراشه شیفت به چپ انجام می‌دهد و داده‌ی سریال از ورودی [[D]] وارد می‌شود.</div>
+<figure class="sim" data-src="f1-7495-schematic.png" data-cap="شماتیک شیفت رجیستر با تراشه‌ی [[7495]] در [[Proteus]]" data-hint="تراشه‌ی 7495 با کلیدهای MODE و SER، منبع کلاک روی CLK1 و CLK2، ورودی‌های ABCD و LEDهای خروجی."></figure>
+<figure class="sim grid c2" data-cap="عملکرد تراشه‌ی [[7495]] در شبیه‌سازی">
+  <i data-src="f2-7495-parallel-load-1010.png" data-sub="(الف) MODE=1 · بارگذاری موازی 1010" data-hint="LEDها پس از لبه‌ی CLK2 مقدار 1010 را نشان دهند."></i>
+  <i data-src="f3-7495-shift-right.png" data-sub="(ب) MODE=0 · شیفت به راست" data-hint="وضعیت پس از چند کلاک روی CLK1."></i>
+</figure>
+<figure class="sim" data-src="f4-7495-timing-analyser.png" data-cap="نمودار زمانی تراشه‌ی [[7495]] (بارگذاری، سپس شیفت)" data-hint="Logic Analyser: CLK1, CLK2, MODE, SER, QA..QD برای سناریوی جدول بالا."></figure>
+<!--
+<figure class="real" data-src="real-f-7495-breadboard.jpg" data-cap="شیفت رجیستر با تراشه‌ی 7495 روی برد بورد" data-hint="عکس مدار با تراشه‌ی 7495، کلیدها و LEDها."></figure>
+-->
+
+<!-- ---------------- ح ---------------- -->
+<h3 class="part"><span class="let">ح</span>آشکارساز دنباله‌های {{1101}}، {{1110}}، {{0010}} و {{0001}}</h3>
+<h4>طراحی</h4>
+<p>بیت‌های ورودی [[X]] به ثبات ۴ بیتی وارد می‌شوند. قرارداد: <b>بیت چپ دنباله اول می‌رسد</b>. چون بیت اول پس از چهار کلاک در [[QD]] قرار می‌گیرد، محتوای ثبات {{QA QB QC QD}} وارونه‌ی ترتیب ورود است. نگاشت دنباله‌ها به محتوای ثبات:</p>
+%%TBL_DETMAP%%
+<p>پس [[Z = Σm(4, 7, 8, 11)]] و چهار مینترم با هم همسایه نیستند، یعنی نقشه‌ی کارنو ساده‌سازی ندارد. اما ساختار آن‌ها تقارن دارد: در هر چهار الگو دو بیت {{QA QB}} با هم <b>متفاوت</b> و دو بیت {{QC QD}} با هم <b>برابر</b> هستند ({{01|10}} × {{00|11}} = ۴ حالت) و هیچ حالت دیگری این ویژگی را ندارد. بنابراین:</p>
+<div class="eq">Z = (Q<sub>A</sub> ⊕ Q<sub>B</sub>) · <span class="ov">(Q<sub>C</sub> ⊕ Q<sub>D</sub>)</span></div>
+<p>این مدار فقط به <b>دو [[XOR]]</b>، یک [[NOT]] و یک [[AND]] نیاز دارد (کمتر از دو‌سطحی [[SOP]] با چهار گیت ۴‌ورودی). حالت {{0000}} پس از پاک‌سازی در مجموعه‌ی الگوها نیست، پس بیت‌های صفر اولیه خروجی کاذب نمی‌سازند، البته صفرهای اولیه‌ی ثبات جزو داده‌ی ورودی محسوب می‌شوند (کلاک‌های ۱ تا ۳ در جدول زیر).</p>
+<figure><div class="svgwrap">%%SVG_DETECTOR%%</div><figcaption>بلوک دیاگرام آشکارساز دنباله: ثبات ۴ بیتی + [[XOR]] / [[XNOR]] / [[AND]]</figcaption></figure>
+<h4>نتایج مورد انتظار برای ورودی آزمون {{1101110001011101}}</h4>
+%%TBL_DETECTOR%%
+<figure><div class="svgwrap">%%SVG_W_DETECTOR%%</div><figcaption>نمودار زمانی نظری آشکارساز: [[X]] هر بیت را نیم‌پریود پیش از لبه‌ی نمونه‌برداری نگه می‌دارد؛ خروجی [[Z]] برای حالت‌های تشخیص داده‌شده [[۱]] می‌شود (ناحیه‌ی رنگی)</figcaption></figure>
+<div class="box warn"><b class="t">گلیچ احتمالی</b>[[Z]] یک خروجی ترکیبی از چهار خروجی ثبات است و ممکن است لحظه‌ای هنگام تغییر هم‌زمان [[Q]]ها پالس کاذب بدهد. برای حذف آن می‌توان [[Z]] را با یک فلیپ‌فلاپ [[D]] دیگر با همان کلاک ثبت کرد (به قیمت یک کلاک تأخیر).</div>
+<figure class="sim" data-src="g1-detector-schematic.png" data-cap="شماتیک آشکارساز دنباله در [[Proteus]]" data-hint="ثبات 7495 (یا 4 فلیپ‌فلاپ) + دو XOR (7486)، یک NOT (7404) و یک AND (7408)؛ ورودی X با کلید و کلاک؛ خروجی Z با LED."></figure>
+<figure class="sim" data-src="g2-detector-timing-analyser.png" data-cap="نمودار زمانی شبیه‌سازی‌شده‌ی آشکارساز برای ورودی آزمون" data-hint="Logic Analyser: CLK, X, QA..QD, Z برای ورودی 1101110001011101 (۱۶ کلاک)؛ لحظه‌های Z=1 قابل تشخیص باشند."></figure>
+<figure class="sim grid c3" data-cap="لحظه‌ی تشخیص هر یک از چهار دنباله‌ی هدف و دو حالت منفی">
+  <i data-src="g3-detector-hit-1101.png" data-sub="دنباله 1101 · Z=1" data-hint="ثبات = 1011."></i>
+  <i data-src="g4-detector-hit-1110.png" data-sub="دنباله 1110 · Z=1" data-hint="ثبات = 0111."></i>
+  <i data-src="g5-detector-hit-0010.png" data-sub="دنباله 0010 · Z=1" data-hint="ثبات = 0100."></i>
+  <i data-src="g6-detector-hit-0001.png" data-sub="دنباله 0001 · Z=1" data-hint="ثبات = 1000."></i>
+  <i data-src="g7-detector-miss-1111.png" data-sub="دنباله 1111 · Z=0" data-hint="مثال منفی."></i>
+  <i data-src="g8-detector-miss-1011.png" data-sub="دنباله 1011 · Z=0" data-hint="مثال منفی."></i>
+</figure>
+<!--
+<figure class="real" data-src="real-g-detector-breadboard.jpg" data-cap="آشکارساز دنباله روی برد بورد" data-hint="عکس مدار با LED خروجی Z روشن در لحظه‌ی تشخیص."></figure>
+-->
+</section>
+
+<!-- ============================ ۵. پین دیاگرام ============================ -->
+<section class="brk">
+<h2><span class="num">۵</span>پین‌دیاگرام طرح نهایی و تغییرات</h2>
+<h3>۵-۱ پین‌دیاگرام تراشه‌های اصلی</h3>
+<figure><div class="svgwrap">%%SVG_PINOUT%%</div><figcaption>پین‌دیاگرام تراشه‌های [[7495]] و [[7474]] (نمای بالا، شیار سمت بالا). پایه‌های [[PRE̅/CLR̅]] در حالت عادی به [[VCC]] وصل می‌شوند</figcaption></figure>
+
+<h3>۵-۲ اتصالات نهایی تراشه‌ی ۷۴۹۵ (بخش‌های چ و ح)</h3>
+<table class="data c">
+<thead><tr><th>پایه</th><th>نام</th><th>اتصال در مدار نهایی</th></tr></thead>
+<tbody>
+<tr><td>۱</td><td>[[SER]]</td><td>ورودی سریال [[X]] (کلید) – در جانسون: [[Q̅D]]</td></tr>
+<tr><td>۲ تا ۵</td><td>[[A B C D]]</td><td>کلیدهای ورودی موازی (در بخش ح آزاد/زمین)</td></tr>
+<tr><td>۶</td><td>[[MODE]]</td><td>کلید: {{1}} بارگذاری / {{0}} شیفت راست</td></tr>
+<tr><td>۸</td><td>[[CLK2]]</td><td>کلاک بارگذاری (شستی یا مولد)</td></tr>
+<tr><td>۹</td><td>[[CLK1]]</td><td>کلاک شیفت راست (مولد [[555]] / شستی)</td></tr>
+<tr><td>۱۳ تا ۱۰</td><td>[[QA…QD]]</td><td>[[LED]] + ورودی گیت‌های تشخیص (بخش ح)</td></tr>
+<tr><td>۱۴ / ۷</td><td>[[VCC]] / [[GND]]</td><td>[[+5 V]] / زمین</td></tr>
+</tbody></table>
+
+<h3>۵-۳ تغییرات بین نسخه‌های مدار</h3>
+<table class="data c">
+<thead><tr><th>از</th><th>به</th><th>تغییر لازم</th></tr></thead>
+<tbody>
+<tr><td>شکل ۱ (الف)</td><td>جانسون (ت)</td><td>اتصال [[Q̅D]] (از [[NOT]]) به [[SE]]؛ شروع از {{0000}}</td></tr>
+<tr><td>شکل ۱ (الف)</td><td>دوطرفه (ج)</td><td>حذف ورودی‌های موازی؛ ورودی هر [[AND]] دوم از [[Q]] همسایه‌ی راست؛ افزودن [[SL]] و کلید [[DIR]]</td></tr>
+<tr><td>ساخت گسسته</td><td>تراشه‌ی ۷۴۹۵ (چ)</td><td>جایگزینی ۶ تراشه با یک تراشه؛ [[PE]] ← [[MODE]]؛ کلاک روی لبه‌ی پایین‌رونده</td></tr>
+<tr><td>ثبات</td><td>آشکارساز (ح)</td><td>افزودن [[7486]]، [[7404]] و [[7408]] روی خروجی‌های ثبات و خروجی [[Z]]</td></tr>
+</tbody></table>
+<figure class="sim" data-src="h1-final-schematic-overview.png" data-cap="نمای کلی پروژه‌ی نهایی در [[Proteus]]" data-hint="Screenshot از کل صفحه‌ی شماتیک نهایی (اگر چند صفحه دارد، نمای کلی) که تراشه‌ها و مسیرهای اصلی را نشان می‌دهد."></figure>
+<!--
+<figure class="real" data-src="real-final-board.jpg" data-cap="مدار نهایی بسته‌شده روی برد بورد" data-hint="عکس کلی از برد بورد نهایی."></figure>
+<figure class="real" data-src="real-group-lab.jpg" data-cap="اعضای گروه در حال انجام آزمایش" data-hint="(اختیاری) عکس گروهی در آزمایشگاه."></figure>
+-->
+</section>
+
+<!-- ============================ ۶. نتایج ============================ -->
+<section>
+<h2><span class="num">۶</span>نتایج مورد انتظار و جمع‌بندی</h2>
+<h3>۶-۱ خلاصه‌ی نتایج مورد انتظار</h3>
+<table class="data c">
+<thead><tr><th>بخش</th><th>رفتار مورد انتظار</th><th>معیار موفقیت</th></tr></thead>
+<tbody>
+<tr><td>الف</td><td>شیفت یک‌خانه‌ای داده در هر کلاک</td><td>داده‌ی [[SE]] پس از ۴ کلاک به [[QD]] می‌رسد</td></tr>
+<tr><td>ب</td><td>بارگذاری {{1010}} با یک کلاک</td><td>[[QA…QD]] = {{1010}}</td></tr>
+<tr><td>پ</td><td>شیفت راست</td><td>{{1010→0101→0010→0001→0000}}</td></tr>
+<tr><td>ت</td><td>شمارنده‌ی مدولو ۸، [[f = f_clk/8]]</td><td>هشت حالت منحصربه‌فرد و بازگشت به {{0000}}</td></tr>
+<tr><td>ج</td><td>شیفت دوطرفه</td><td>با [[DIR]] جهت حرکت عوض می‌شود</td></tr>
+<tr><td>چ</td><td>رفتار معادل ۷۴۹۵</td><td>همان جدول‌های بخش‌های ب و پ</td></tr>
+<tr><td>ح</td><td>تشخیص چهار دنباله‌ی هم‌پوشان</td><td>[[Z=1]] دقیقاً در کلاک‌های مشخص‌شده در جدول</td></tr>
+</tbody></table>
+
+<h3>۶-۲ نکات عملی برای ساخت واقعی</h3>
+<ul>
+<li>کلاک دستی را با شستی <b>بدون پرش</b> ([[debounce]]) تولید کنید (مثلاً [[RS latch]] یا [[Schmitt trigger]])؛ در غیر این صورت چند لبه‌ی ناخواسته ثبات را چند خانه جابه‌جا می‌کند.</li>
+<li>ورودی‌های بلااستفاده‌ی گیت‌ها و [[PRE̅/CLR̅]] را به [[VCC]] یا [[GND]] وصل کنید تا شناور نباشند.</li>
+<li>لبه‌ی فعال را بررسی کنید: [[7474]] بالارونده و [[7495]] پایین‌رونده است.</li>
+<li>برای کاهش خطا، پیش از اعمال کلاک، حالت کلیدها و مقدار اولیه را یادداشت کنید.</li>
+</ul>
+
+<h3>۶-۳ جمع‌بندی</h3>
+<p>در این پیش‌گزارش یک شیفت رجیستر ۴ بیتی با فلیپ‌فلاپ [[D]] و انتخابگر [[AND-OR]] طراحی شد و معادله‌ی هر طبقه، جداول وضعیت و نمودارهای زمانی نظری آن استخراج گردید. همین ساختار با تغییر در سیم‌کشی به شیفت دوطرفه، شمارنده‌ی جانسون مدولو ۸ و ثبات پنجره‌ی لغزنده برای تشخیص دنباله تبدیل شد. برای آشکارساز دنباله، با مشاهده‌ی تقارن مینترم‌ها رابطه‌ی ساده‌ی [[Z = (QA⊕QB)·(QC⊙QD)]] به دست آمد که از پیاده‌سازی دو‌سطحی ارزان‌تر است. همچنین نشان داده شد که مقدار {{1010}} در شمارنده‌ی جانسون ساده در چرخه‌ی غیرمجاز قرار دارد و برای رفع آن می‌توان فیدبک را اصلاح کرد. نتایج شبیه‌سازی [[Proteus]] و آزمایش واقعی باید با جدول‌های بالا مقایسه شوند و هرگونه تفاوت (مثل گلیچ یا لبه‌ی اشتباه کلاک) در گزارش نهایی تحلیل گردد.</p>
+</section>
+
+<!-- ============================ ۷. منابع ============================ -->
+<section>
+<h2><span class="num">۷</span>منابع</h2>
+<ol>
+<li>دستور کار آزمایشگاه مدار منطقی، دانشکده‌ی مهندسی کامپیوتر، دانشگاه صنعتی شریف – آزمایش چهارم: شیفت رجیسترها.</li>
+<li>M. Morris Mano and Michael D. Ciletti, <span class="en">Digital Design: With an Introduction to the Verilog HDL</span>, Pearson – Chapter 6: Registers and Counters.</li>
+<li>Thomas L. Floyd, <span class="en">Digital Fundamentals</span>, Pearson – Shift Registers and Counters.</li>
+<li>Texas Instruments, <span class="en">SN54LS95B / SN74LS95B: 4-Bit Parallel-Access Shift Registers</span>, Datasheet.</li>
+<li>Texas Instruments, <span class="en">SN54LS74A / SN74LS74A: Dual D-Type Positive-Edge-Triggered Flip-Flops</span>, Datasheet.</li>
+<li>Labcenter Electronics, <span class="en">Proteus Design Suite (ISIS) User Manual</span>.</li>
+<li><a class="gh" href="https://github.com/">فایل پروژه‌ی Proteus و تصاویر این گزارش (مخزن GitHub گروه)</a>.</li>
+</ol>
+</section>
+
+<script>
+/* ===== تنظیمات قابل ویرایش =====
+   آدرس مخزن گیت‌هاب را فقط همین‌جا عوض کنید (همه‌ی لینک‌های class="gh" را تغییر می‌دهد). */
+const GITHUB_URL = "https://github.com/USERNAME/REPO";
+document.querySelectorAll("a.gh").forEach(a=>a.href=GITHUB_URL);
+
+/* ===== جای تصاویر =====
+   فایل تصویر را با «همان نام» داخل پوشه‌ی images/ بگذارید؛ به‌طور خودکار جایگزین کادر خالی می‌شود. */
+const ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>';
+function slot(el, small){
+  const src=el.dataset.src, hint=el.dataset.hint||"", sub=el.dataset.sub||"";
+  const real=el.closest("figure").classList.contains("real");
+  const wrap=document.createElement("div"); wrap.className="cell";
+  const ph=document.createElement("div"); ph.className="slot"+(small?" sm":"")+(real?" real":"");
+  ph.innerHTML=ICON+'<span class="tag">'+(real?"جای عکس آزمایشگاه (واقعی)":"جای تصویر شبیه‌سازی Proteus")+'</span><span class="fn">images/'+src+'</span>'+(small?"":'<span class="hint">'+hint+'</span>');
+  wrap.appendChild(ph);
+  if(sub){const s=document.createElement("span");s.className="gsub";s.textContent=sub;wrap.appendChild(s);}
+  const img=new Image(); img.className="slotimg"; img.alt=sub||src;
+  img.onload=()=>{ph.replaceWith(img)}; img.src="images/"+src;
+  return wrap;
+}
+document.querySelectorAll("figure.sim, figure.real").forEach(f=>{
+  const cap=document.createElement("figcaption"); cap.innerHTML=f.dataset.cap;
+  const kids=[...f.querySelectorAll(":scope > i")];
+  if(kids.length){ const g=document.createElement("div"); g.className="grid "+[...f.classList].filter(c=>/^c\d$/.test(c)).join(" ");
+    kids.forEach(k=>g.appendChild(slot(k,true))); f.innerHTML=""; f.appendChild(g);}
+  else { const s=slot(f,false); f.innerHTML=""; f.appendChild(s); }
+  f.appendChild(cap);
+});
+window.__ready=true;
+</script>
+</body>
+</html>
